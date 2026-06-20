@@ -2,9 +2,12 @@
 
 **Write your agent skill once. Run it on any agent.**
 
+&nbsp;·&nbsp; **[Blog →](https://substack.com/home/post/p-202889236)** &nbsp;·&nbsp; 
+
 [![npm](https://img.shields.io/npm/v/@avee1234/skillbridge?color=cb3837&logo=npm&label=%40avee1234%2Fskillbridge)](https://www.npmjs.com/package/@avee1234/skillbridge)
 &nbsp;·&nbsp; **[Live playground →](https://skill-bridge-playground.space)**
 &nbsp;·&nbsp; `npx @avee1234/skillbridge convert ./my-skill --to all`
+
 
 I use several AI coding agents in a normal week. They've all converged on the same good
 idea — **skills**, little markdown files that teach an agent a task you repeat all the time.
