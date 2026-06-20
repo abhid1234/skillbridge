@@ -1,0 +1,141 @@
+### .claude/skills/commit-helper/SKILL.md
+---
+name: commit-helper
+description: "Writes a clear, conventional-commits message for the current staged git diff. Use when the user asks to commit, write a commit message, or save my work."
+allowed-tools: "Bash(git diff*), Bash(git status*), Bash(git log*)"
+---
+
+# Commit Helper
+
+Generate a Conventional Commits message for what is currently staged.
+
+## Steps
+1. Run `git diff --staged` to see the staged changes. If nothing is staged, say so and stop.
+2. Run `git log -5 --oneline` to match the repo's existing message style.
+3. Draft a message: `<type>(<scope>): <summary>` where type ∈ feat|fix|docs|refactor|test|chore.
+   - Summary ≤ 72 chars, imperative mood.
+   - Add a body only if the change needs explanation.
+4. Show the message to the user. Do **not** commit until they approve.
+
+## References
+- See `references/conventional-commits.md` for the full type list and examples.
+
+### .mcp.json
+{
+  "mcpServers": {
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}
+
+### .agents/skills/commit-helper/SKILL.md
+---
+name: commit-helper
+description: "Writes a clear, conventional-commits message for the current staged git diff. Use when the user asks to commit, write a commit message, or save my work."
+---
+
+# Commit Helper
+
+Generate a Conventional Commits message for what is currently staged.
+
+## Steps
+1. Run `git diff --staged` to see the staged changes. If nothing is staged, say so and stop.
+2. Run `git log -5 --oneline` to match the repo's existing message style.
+3. Draft a message: `<type>(<scope>): <summary>` where type ∈ feat|fix|docs|refactor|test|chore.
+   - Summary ≤ 72 chars, imperative mood.
+   - Add a body only if the change needs explanation.
+4. Show the message to the user. Do **not** commit until they approve.
+
+## References
+- See `references/conventional-commits.md` for the full type list and examples.
+
+### mcp_config.json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}
+
+### .agents/skills/commit-helper/SKILL.md
+---
+name: commit-helper
+description: "Writes a clear, conventional-commits message for the current staged git diff. Use when the user asks to commit, write a commit message, or save my work."
+---
+
+# Commit Helper
+
+Generate a Conventional Commits message for what is currently staged.
+
+## Steps
+1. Run `git diff --staged` to see the staged changes. If nothing is staged, say so and stop.
+2. Run `git log -5 --oneline` to match the repo's existing message style.
+3. Draft a message: `<type>(<scope>): <summary>` where type ∈ feat|fix|docs|refactor|test|chore.
+   - Summary ≤ 72 chars, imperative mood.
+   - Add a body only if the change needs explanation.
+4. Show the message to the user. Do **not** commit until they approve.
+
+## References
+- See `references/conventional-commits.md` for the full type list and examples.
+
+### config.toml
+[mcp_servers.github]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-github"]
+
+[mcp_servers.github.env]
+GITHUB_TOKEN = "${GITHUB_TOKEN}"
+
+### .cursor/skills/commit-helper/SKILL.md
+---
+name: commit-helper
+description: "Writes a clear, conventional-commits message for the current staged git diff. Use when the user asks to commit, write a commit message, or save my work."
+---
+
+# Commit Helper
+
+Generate a Conventional Commits message for what is currently staged.
+
+## Steps
+1. Run `git diff --staged` to see the staged changes. If nothing is staged, say so and stop.
+2. Run `git log -5 --oneline` to match the repo's existing message style.
+3. Draft a message: `<type>(<scope>): <summary>` where type ∈ feat|fix|docs|refactor|test|chore.
+   - Summary ≤ 72 chars, imperative mood.
+   - Add a body only if the change needs explanation.
+4. Show the message to the user. Do **not** commit until they approve.
+
+## References
+- See `references/conventional-commits.md` for the full type list and examples.
+
+### .cursor/mcp.json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}

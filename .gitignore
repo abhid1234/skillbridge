@@ -1,0 +1,18 @@
+node_modules
+.vercel/
+dist/
+# stray in-place compiler output (source is .ts; compiled output goes to dist/)
+packages/cli/src/**/*.js
+packages/cli/test/**/*.js
+web/lib/
+web/registry.gen.js
+*.log
+.DS_Store
+# launch artifacts (drafts live OUTSIDE the repo; the demo-video SCRIPT in docs/ is the only video artifact tracked)
+docs/BLOG_POST.md
+docs/SOCIAL_POSTS.md
+docs/blog.html
+docs/social_posts.html
+docs/launch_video*
+docs/launch_video/
+.vercel

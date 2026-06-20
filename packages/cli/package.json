@@ -1,0 +1,50 @@
+{
+  "name": "@avee1234/skillbridge",
+  "version": "0.1.0",
+  "description": "Write an agent skill once, run it on any agent harness. Converts a portable skill.sb.md (skills, sub-agents, MCP, hooks, args, permissions) into native files for Antigravity, Claude Code, Codex, and Cursor.",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "homepage": "https://skill-bridge-playground.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhid1234/skillbridge.git",
+    "directory": "packages/cli"
+  },
+  "bugs": { "url": "https://github.com/abhid1234/skillbridge/issues" },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "bin": {
+    "skillbridge": "dist/src/cli.js"
+  },
+  "files": [
+    "dist/src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:web": "tsc -p tsconfig.web.json && node scripts/gen-registry.mjs",
+    "test": "tsc -p tsconfig.json && node --test \"dist/test/**/*.test.js\"",
+    "conformance": "tsc -p tsconfig.json && node scripts/gen-conformance.mjs",
+    "conformance:check": "tsc -p tsconfig.json && node scripts/gen-conformance.mjs --check"
+  },
+  "keywords": [
+    "agent",
+    "skills",
+    "sub-agents",
+    "mcp",
+    "antigravity",
+    "claude-code",
+    "codex",
+    "cursor",
+    "portable",
+    "converter"
+  ],
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  }
+}

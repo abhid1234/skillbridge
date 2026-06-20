@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkillBridge — write your agent skill once, run it on any agent</title>
+  <meta name="description" content="A portable agent-skill format. Write one skill.sb.md and convert it to native files for Claude Code, Codex, Cursor, and more — live, in your browser." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <!-- Social cards. Set og:url + an absolute og:image URL at deploy time. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://skill-bridge-playground.space" />
+  <meta property="og:title" content="SkillBridge — write your agent skill once, run it on any agent" />
+  <meta property="og:description" content="Author one skill.sb.md and convert it live to native files for Claude Code, Codex, Cursor, and more. Runs entirely in your browser." />
+  <meta property="og:image" content="https://skill-bridge-playground.space/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SkillBridge — write your agent skill once, run it on any agent" />
+  <meta name="twitter:description" content="Convert one portable skill to Claude Code, Codex, Cursor, and more — live in your browser." />
+  <meta name="twitter:image" content="https://skill-bridge-playground.space/og.png" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Portable agent skills · spec v0.1</p>
+      <h1 class="title">SkillBridge</h1>
+      <p class="tagline">Write your agent skill once. Run it on any agent.</p>
+      <p class="subtitle">
+        Author a single <b>skill.sb.md</b> and bring it into
+        <b>Claude Code</b>, <b>Codex</b>, <b>Cursor</b>, and more — SkillBridge
+        emits the native files each harness expects. Paste a skill below and watch it
+        convert, live. Everything runs in your browser; nothing is uploaded.
+      </p>
+      <div class="chips">
+        <span class="chip"><strong>4</strong>&nbsp;harnesses</span>
+        <span class="chip">zero&nbsp;dependencies</span>
+        <span class="chip">one-way · honest about what's <strong>lossy</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="toolbar">
+      <label>Load a sample
+        <select id="sample"></select>
+      </label>
+      <div class="targets" id="targets">
+        <label><input type="checkbox" value="claude-code" checked /> Claude Code</label>
+        <label><input type="checkbox" value="antigravity" checked /> Antigravity</label>
+        <label><input type="checkbox" value="codex" checked /> Codex</label>
+        <label><input type="checkbox" value="cursor" checked /> Cursor</label>
+      </div>
+      <span class="spacer"></span>
+      <label class="diff-toggle"><input type="checkbox" id="diff-toggle" /> Diff vs source</label>
+      <button id="doctor-btn" class="btn">Run doctor</button>
+      <button id="share" class="btn">Copy share link</button>
+    </div>
+    <p class="note toolbar-note">converts as you type · runs in your browser</p>
+
+    <section class="editor-panel">
+      <details class="import-panel" id="import-panel">
+        <summary>↺ Already have a skill? Import an existing SKILL.md (Claude Code / Codex / Antigravity / Cursor)</summary>
+        <div class="import-body">
+          <label>from
+            <select id="import-from">
+              <option value="auto">auto-detect</option>
+              <option value="claude-code">Claude Code</option>
+              <option value="antigravity">Antigravity</option>
+              <option value="codex">Codex</option>
+              <option value="cursor">Cursor</option>
+            </select>
+          </label>
+          <textarea id="import-src" spellcheck="false" placeholder="Paste a native SKILL.md here…"></textarea>
+          <div class="import-actions">
+            <button class="btn" id="import-run">Convert to SkillBridge ↓</button>
+            <span class="import-status" id="import-status"></span>
+          </div>
+        </div>
+      </details>
+      <p class="panel-label">skill.sb.md — source (edit me)</p>
+      <textarea id="editor" spellcheck="false" autocomplete="off"></textarea>
+      <div id="doctor-panel"></div>
+    </section>
+
+    <section class="results">
+      <p class="panel-label">Converted output — side by side</p>
+      <p class="status" id="status"></p>
+      <div id="errors"></div>
+      <div id="summary"></div>
+      <div id="warnings"></div>
+      <div id="legend"></div>
+      <div id="outputs"></div>
+    </section>
+
+    <section class="registry" id="registry">
+      <p class="panel-label">Registry — <span id="registry-count"></span> ready-to-run skills · load any into the playground</p>
+      <div class="registry-controls">
+        <input id="registry-search" type="search" placeholder="Search skills…" autocomplete="off" />
+        <div class="rfilter" id="registry-filter"></div>
+      </div>
+      <div class="registry-grid" id="registry-grid"></div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      Prefer the terminal? It's a zero-dependency CLI on npm —
+      <a href="https://www.npmjs.com/package/@avee1234/skillbridge">@avee1234/skillbridge</a>:
+      <code>npx @avee1234/skillbridge convert ./my-skill --to all</code>
+      <br><br>
+      SkillBridge converts a portable skill format to native harness files.
+      Conversion is one-way (SkillBridge → harness) and runs entirely client-side —
+      nothing you type is uploaded. Built on the open
+      <a href="https://agentskills.io">Agent Skills</a> standard.
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

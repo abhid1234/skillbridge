@@ -1,0 +1,178 @@
+# examples/commit-helper  ok=true
+  [claude-code] skipped=false files=2
+    - .claude/skills/commit-helper/SKILL.md
+    - .mcp.json
+  [antigravity] skipped=false files=2
+    - .agents/skills/commit-helper/SKILL.md
+    - mcp_config.json
+  [codex] skipped=false files=2
+    - .agents/skills/commit-helper/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=2
+    - .cursor/mcp.json
+    - .cursor/skills/commit-helper/SKILL.md
+# registry/api-endpoint-scaffolder  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/api-endpoint-scaffolder/SKILL.md
+  [antigravity] skipped=false files=1
+    - .agents/skills/api-endpoint-scaffolder/SKILL.md
+  [codex] skipped=false files=1
+    - .agents/skills/api-endpoint-scaffolder/SKILL.md
+  [cursor] skipped=false files=1
+    - .cursor/skills/api-endpoint-scaffolder/SKILL.md
+# registry/changelog-generator  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/changelog-generator/SKILL.md
+  [antigravity] skipped=false files=2
+    - .agents/skills/changelog-generator/SETUP.antigravity.md
+    - .agents/skills/changelog-generator/SKILL.md
+  [codex] skipped=false files=2
+    - .agents/skills/changelog-generator/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=1
+    - .cursor/skills/changelog-generator/SKILL.md
+# registry/conventional-commit-writer  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/conventional-commit-writer/SKILL.md
+  [antigravity] skipped=false files=2
+    - .agents/skills/conventional-commit-writer/SETUP.antigravity.md
+    - .agents/skills/conventional-commit-writer/SKILL.md
+  [codex] skipped=false files=2
+    - .agents/skills/conventional-commit-writer/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=1
+    - .cursor/skills/conventional-commit-writer/SKILL.md
+# registry/db-schema-explorer  ok=true
+  [claude-code] skipped=false files=2
+    - .claude/skills/db-schema-explorer/SKILL.md
+    - .mcp.json
+  [antigravity] skipped=false files=3
+    - .agents/skills/db-schema-explorer/SETUP.antigravity.md
+    - .agents/skills/db-schema-explorer/SKILL.md
+    - mcp_config.json
+  [codex] skipped=false files=2
+    - .agents/skills/db-schema-explorer/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=2
+    - .cursor/mcp.json
+    - .cursor/skills/db-schema-explorer/SKILL.md
+# registry/dependency-bump-checker  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/dependency-bump-checker/SKILL.md
+  [antigravity] skipped=false files=2
+    - .agents/skills/dependency-bump-checker/SETUP.antigravity.md
+    - .agents/skills/dependency-bump-checker/SKILL.md
+  [codex] skipped=false files=2
+    - .agents/skills/dependency-bump-checker/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=1
+    - .cursor/skills/dependency-bump-checker/SKILL.md
+# registry/design-token-sync  ok=true
+  [claude-code] skipped=false files=2
+    - .claude/skills/design-token-sync/SKILL.md
+    - .mcp.json
+  [antigravity] skipped=false files=3
+    - .agents/skills/design-token-sync/SETUP.antigravity.md
+    - .agents/skills/design-token-sync/SKILL.md
+    - mcp_config.json
+  [codex] skipped=false files=2
+    - .agents/skills/design-token-sync/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=2
+    - .cursor/mcp.json
+    - .cursor/skills/design-token-sync/SKILL.md
+# registry/env-var-auditor  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/env-var-auditor/SKILL.md
+  [antigravity] skipped=false files=2
+    - .agents/skills/env-var-auditor/SETUP.antigravity.md
+    - .agents/skills/env-var-auditor/SKILL.md
+  [codex] skipped=false files=2
+    - .agents/skills/env-var-auditor/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=1
+    - .cursor/skills/env-var-auditor/SKILL.md
+# registry/error-log-summarizer  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/error-log-summarizer/SKILL.md
+  [antigravity] skipped=false files=1
+    - .agents/skills/error-log-summarizer/SKILL.md
+  [codex] skipped=false files=1
+    - .agents/skills/error-log-summarizer/SKILL.md
+  [cursor] skipped=false files=1
+    - .cursor/skills/error-log-summarizer/SKILL.md
+# registry/markdown-table-formatter  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/markdown-table-formatter/SKILL.md
+  [antigravity] skipped=false files=1
+    - .agents/skills/markdown-table-formatter/SKILL.md
+  [codex] skipped=false files=1
+    - .agents/skills/markdown-table-formatter/SKILL.md
+  [cursor] skipped=false files=1
+    - .cursor/skills/markdown-table-formatter/SKILL.md
+# registry/pr-description-drafter  ok=true
+  [claude-code] skipped=false files=2
+    - .claude/skills/pr-description-drafter/SKILL.md
+    - .mcp.json
+  [antigravity] skipped=false files=2
+    - .agents/skills/pr-description-drafter/SKILL.md
+    - mcp_config.json
+  [codex] skipped=false files=2
+    - .agents/skills/pr-description-drafter/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=2
+    - .cursor/mcp.json
+    - .cursor/skills/pr-description-drafter/SKILL.md
+# registry/regex-builder  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/regex-builder/SKILL.md
+  [antigravity] skipped=false files=1
+    - .agents/skills/regex-builder/SKILL.md
+  [codex] skipped=false files=1
+    - .agents/skills/regex-builder/SKILL.md
+  [cursor] skipped=false files=1
+    - .cursor/skills/regex-builder/SKILL.md
+# registry/release-notes-drafter  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/release-notes-drafter/SKILL.md
+  [antigravity] skipped=false files=1
+    - .agents/skills/release-notes-drafter/SKILL.md
+  [codex] skipped=false files=1
+    - .agents/skills/release-notes-drafter/SKILL.md
+  [cursor] skipped=false files=1
+    - .cursor/skills/release-notes-drafter/SKILL.md
+# registry/sql-explainer  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/sql-explainer/SKILL.md
+  [antigravity] skipped=false files=1
+    - .agents/skills/sql-explainer/SKILL.md
+  [codex] skipped=false files=1
+    - .agents/skills/sql-explainer/SKILL.md
+  [cursor] skipped=false files=1
+    - .cursor/skills/sql-explainer/SKILL.md
+# registry/test-failure-triager  ok=true
+  [claude-code] skipped=false files=1
+    - .claude/skills/test-failure-triager/SKILL.md
+  [antigravity] skipped=false files=2
+    - .agents/skills/test-failure-triager/SETUP.antigravity.md
+    - .agents/skills/test-failure-triager/SKILL.md
+  [codex] skipped=false files=2
+    - .agents/skills/test-failure-triager/SKILL.md
+    - config.toml
+  [cursor] skipped=false files=1
+    - .cursor/skills/test-failure-triager/SKILL.md
+# synthetic/rich-skill  ok=true
+  [claude-code] skipped=false files=2
+    - .claude/agents/reviewer.md
+    - .claude/skills/rich-skill/SKILL.md
+  [antigravity] skipped=false files=2
+    - .agents/skills/rich-skill/SETUP.antigravity.md
+    - .agents/skills/rich-skill/SKILL.md
+  [codex] skipped=false files=4
+    - .agents/skills/rich-skill/SETUP.codex.md
+    - .agents/skills/rich-skill/SKILL.md
+    - .codex/agents/reviewer.toml
+    - config.toml
+  [cursor] skipped=false files=2
+    - .cursor/agents/reviewer.md
+    - .cursor/skills/rich-skill/SKILL.md

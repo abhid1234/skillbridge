@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skillbridge.dev/schema/skill.sb.v0.2.json",
+  "title": "SkillBridge skill.sb.md frontmatter",
+  "description": "JSON Schema for the YAML frontmatter of a SkillBridge skill.sb.md (spec v0.2: adds agents/args/hooks/scripts + extended tools approval/sandbox/paths). Editors that support YAML frontmatter schemas (e.g. the VS Code YAML extension) can use this for validation and autocomplete.",
+  "type": "object",
+  "required": ["name", "description"],
+  "additionalProperties": true,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 64,
+      "description": "Lowercase kebab-case identifier; becomes the skill folder/id in every harness."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the skill does and when to use it — the activation/trigger signal. Keep under ~1024 chars."
+    },
+    "spec_version": { "type": "string", "description": "SkillBridge spec version this skill targets, e.g. \"0.1\"." },
+    "version": { "type": "string", "description": "The skill's own semver." },
+    "license": { "type": "string", "description": "SPDX license identifier." },
+    "author": { "type": "string" },
+    "homepage": { "type": "string", "format": "uri" },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "tools": {
+      "type": "object",
+      "description": "Optional, lossy capability hints mapped best-effort per harness.",
+      "additionalProperties": false,
+      "properties": {
+        "filesystem": { "enum": ["read", "write", "none"] },
+        "shell": { "oneOf": [{ "type": "boolean" }, { "type": "array", "items": { "type": "string" } }] },
+        "network": { "oneOf": [{ "type": "boolean" }, { "type": "array", "items": { "type": "string" } }] },
+        "mcp": { "oneOf": [{ "type": "boolean" }, { "type": "array", "items": { "type": "string" } }] },
+        "approval": { "enum": ["untrusted", "on-request", "never"] },
+        "sandbox": { "enum": ["read-only", "workspace-write", "danger-full-access"] },
+        "paths": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "agents": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "description": "Names of sibling sub-agents loaded from agents/<name>.sb.md."
+    },
+    "args": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Slash-command / argument semantics (lossy per target).",
+      "properties": {
+        "hint": { "type": "string" },
+        "spec": { "type": "array", "items": { "type": "string" } },
+        "model_invocable": { "type": "boolean" }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "description": "Skill-level lifecycle hooks: event -> command(s).",
+      "additionalProperties": { "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }] }
+    },
+    "scripts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Declared executable entrypoints under scripts/."
+    },
+    "mcp": {
+      "type": "object",
+      "description": "MCP servers keyed by name. Each is stdio (command) OR http (url).",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "command": { "type": "string" },
+          "args": { "type": "array", "items": { "type": "string" } },
+          "env": { "type": "object", "additionalProperties": { "type": "string" } },
+          "url": { "type": "string" },
+          "headers": { "type": "object", "additionalProperties": { "type": "string" } }
+        },
+        "oneOf": [
+          { "required": ["command"] },
+          { "required": ["url"] }
+        ]
+      }
+    },
+    "targets": {
+      "type": "object",
+      "description": "Per-harness overrides. Keys must be known target ids.",
+      "additionalProperties": false,
+      "properties": {
+        "claude-code": { "$ref": "#/$defs/targetOverride" },
+        "antigravity": { "$ref": "#/$defs/targetOverride" },
+        "codex": { "$ref": "#/$defs/targetOverride" },
+        "cursor": { "$ref": "#/$defs/targetOverride" }
+      }
+    }
+  },
+  "$defs": {
+    "targetOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "frontmatter": { "type": "object" },
+        "skip": { "type": "boolean" }
+      }
+    }
+  }
+}

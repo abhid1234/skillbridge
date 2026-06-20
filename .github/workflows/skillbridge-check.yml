@@ -1,0 +1,43 @@
+# SkillBridge drift check — copy this file into your own repo's
+# .github/workflows/ to fail CI when generated native skill files drift from
+# their SkillBridge sources.
+#
+# How it works:
+#   `skillbridge check` recomputes the expected native outputs for every skill
+#   under your configured sourceDir and compares the bytes against what's
+#   committed on disk. It exits non-zero when anything is missing or stale, so
+#   this workflow simply lets that exit code fail the job — no log parsing.
+#
+# Prerequisite: a skillbridge.json at the repo root (run `npx @avee1234/skillbridge init`
+# once and commit it). The CLI is fetched on demand via `npx`, so there is no
+# build step and no extra dependency to install.
+#
+# Security note: every command below is static. Nothing interpolates branch
+# names, PR titles, commit messages, or any other attacker-controllable input,
+# so this workflow is safe to run on `pull_request` from forks.
+name: skillbridge-check
+
+on:
+  push:
+  pull_request:
+
+# Read-only token: this job only inspects the checked-out tree.
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Pin the CLI version you adopted so CI stays reproducible. `npx` will
+      # download it into the runner cache for this single invocation.
+      - name: Verify SkillBridge outputs are in sync
+        run: npx --yes skillbridge@latest check
